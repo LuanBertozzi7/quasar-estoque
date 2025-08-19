@@ -1,10 +1,12 @@
-// gonna receive all auth logic here
 /* eslint-disable no-unused-vars */
 
 import { ref, resolveDirective } from 'vue'
 import useSupabase from 'src/boot/supabase'
 
+
+// reative variable (reload page when changed)
 const user = ref(null)
+
 
 export default function useAuthUser () {
 
@@ -27,6 +29,7 @@ export default function useAuthUser () {
     if(error) throw error
   }
 
+  // !! it's a trick for transform in boolean value(true/false)
   const isLoggedIn = () => {
     return !!user.value
   }
