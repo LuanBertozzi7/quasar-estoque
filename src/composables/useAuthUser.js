@@ -11,7 +11,6 @@ export default function useAuthUser() {
     if (error) throw error
     return user
   }
-  
   const loginWithSocialProvider = async (provider) => {
     const { user, error } = await supabase.auth.signInWithPassword({ provider })
     if (error) throw error

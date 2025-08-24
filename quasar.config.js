@@ -82,7 +82,7 @@ export default defineConfig((/* ctx */) => {
         brand: {
         primary: '#ff4800',
         secondary: '#b53300',
-        accent: '#9C27B0',
+        blue: '#120A8f',
 
         dark: '#1d1d1d',
         'dark-page': '#121212',
@@ -105,7 +105,7 @@ export default defineConfig((/* ctx */) => {
       // directives: [],
 
       // Quasar plugins
-      plugins: [],
+      plugins: ['Dialog'],
     },
 
     // animations: 'all', // --- includes all animations

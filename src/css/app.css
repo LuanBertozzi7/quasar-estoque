@@ -1,1 +1,10 @@
 /* app global css */
+:root {
+  --default-font: "Poppins", Sans-serif;
+}
+
+
+* {
+  font-family: var(--default-font);
+  font-weight: 700;
+}

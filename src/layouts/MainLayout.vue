@@ -3,10 +3,24 @@
     <q-header elevated>
       <q-toolbar>
         <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
-
         <q-toolbar-title> Quasar App | Stock Items </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div class="q-pa-md">
+          <q-btn-dropdown split class="glossy" color="blue" icon="person" @click="onMainClick">
+            <q-list>
+              <q-item clickable v-close-popup @click="onItemClick">
+                <q-item-section avatar>
+                  <q-avatar icon="logout" color="blue" text-color="white" />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>Logout</q-item-label>
+                  <q-item-label caption>logout of account</q-item-label>
+                </q-item-section>
+                <q-item-section side> </q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -73,9 +87,26 @@ const linksList = [
   },
 ]
 
-const leftDrawerOpen = ref(false)
+import useAuthUser from 'src/composables/useAuthUser'
+import { useRouter, userRouter } from 'vue-router'
 
-function toggleLeftDrawer() {
-  leftDrawerOpen.value = !leftDrawerOpen.value
+
+
+setup() {
+  const leftDrawerOpen = ref(false)
+
+  const router = useRouter();
+  const logout = useAuthUser();
+
+  const handleLogout = async () => {
+    await logout();
+  }
+
+  function toggleLeftDrawer() {
+    leftDrawerOpen.value = !leftDrawerOpen.value
+  }
+
+
+  handleLogout
 }
 </script>
