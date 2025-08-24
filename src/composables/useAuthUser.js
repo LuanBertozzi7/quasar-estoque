@@ -1,20 +1,17 @@
-/* eslint-disable no-unused-vars */
-
-import { ref, resolveDirective } from 'vue'
+import { ref } from 'vue'
 import useSupabase from 'src/boot/supabase'
 
-// reative variable (reload page when changed)
 const user = ref(null)
 
 export default function useAuthUser() {
-  const { supabase } = useSupabase()
+  const { supabase } = useSupabase();
 
   const login = async ({ email, password }) => {
     const { user, error } = await supabase.auth.signInWithPassword({ email, password })
     if (error) throw error
     return user
-  } /* ####### supabase.auth.signIn is deprecated ############*/
-
+  }
+  
   const loginWithSocialProvider = async (provider) => {
     const { user, error } = await supabase.auth.signInWithPassword({ provider })
     if (error) throw error

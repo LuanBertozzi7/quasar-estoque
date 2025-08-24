@@ -3,7 +3,7 @@
     <q-header elevated>
       <q-toolbar>
 
-        <q-toolbar-title> Estoque </q-toolbar-title>
+        <q-toolbar-title> Stock Items</q-toolbar-title>
       </q-toolbar>
     </q-header>
 
